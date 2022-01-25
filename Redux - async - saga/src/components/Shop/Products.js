@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 import classes from "./Products.module.css";
-import { fetchProducts } from "../../store/productActions";
+// import { fetchProducts } from "../../store/productActions";
+import { action } from "../../store/store";
 
 const Products = (props) => {
   const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    action("GET");
+  }, []);
 
   return (
     <section className={classes.products}>
